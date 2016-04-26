@@ -55,20 +55,12 @@
                             <springmvc>false</springmvc>
                             <locations>pl.anty.boundary</locations>
                             <schemes>http,https</schemes>
-                            <host>petstore.swagger.wordnik.com</host>
-                            <basePath>/api</basePath>
+                            <host>http://localhost:8080</host>
+                            <basePath>/rest</basePath>
                             <info>
-                                <title>Swagger Maven Plugin Sample</title>
+                                <title>Simple Micro-service</title>
                                 <version>v1</version>
-                                <description>This is a sample for swagger-maven-plugin</description>
-                                <termsOfService>
-                                    http://www.github.com/kongchen/swagger-maven-plugin
-                                </termsOfService>
-                                <contact>
-                                    <email>kongchen@gmail.com</email>
-                                    <name>Kong Chen</name>
-                                    <url>http://kongch.com</url>
-                                </contact>
+                                <description>Sample micro-service only for generating swagger spec file</description>
                                 <license>
                                     <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
                                     <name>Apache 2.0</name>
@@ -78,9 +70,9 @@
                             1) classpath e.g: "classpath:/markdown.hbs", "classpath:/templates/hello.html"
                             2) file e.g: "${basedir}/src/main/resources/markdown.hbs",
                                 "${basedir}/src/main/resources/template/hello.html" -->
-                            <templatePath>${basedir}/templates/strapdown.html.hbs</templatePath>
+                            <templatePath>${basedir}/src/main/resources/templates/strapdown.html.hbs</templatePath>
                             <outputPath>${basedir}/generated/document.html</outputPath>
-                            <swaggerDirectory>${basedir}/target/generated/swagger-ui</swaggerDirectory>
+                            <swaggerDirectory>${basedir}/generated/swagger-ui</swaggerDirectory>
                             <securityDefinitions>
                                 <securityDefinition>
                                     <json>/securityDefinitions.json</json>

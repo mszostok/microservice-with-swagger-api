@@ -1,0 +1,54 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Sample micro-service only for generating swagger spec file",
+    "version" : "v1",
+    "title" : "Simple Micro-service",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "http://localhost:8080",
+  "basePath" : "/rest",
+  "tags" : [ {
+    "name" : "hello",
+    "description" : "Say Hello!"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/hello" : {
+      "get" : {
+        "tags" : [ "hello" ],
+        "summary" : "Say Hello World",
+        "description" : "Just return hello world phrase",
+        "operationId" : "sayHello",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "500" : {
+            "description" : "Something wrong in Server"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "api_key" : {
+      "type" : "apiKey",
+      "name" : "api_key",
+      "in" : "header"
+    },
+    "petstore_auth" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "http://swagger.io/api/oauth/dialog",
+      "flow" : "implicit",
+      "scopes" : {
+        "write:pets" : "modify pets in your account",
+        "read:pets" : "read your pets"
+      }
+    }
+  }
+}
