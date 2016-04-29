@@ -1,0 +1,6 @@
+{
+  "name": "Microservice-with-swagger-api",
+  "tagline": "Sample to present how to generate swagger api form source code by swagger-maven-plugin",
+  "body": "# Simple micro-service with swagger spec\r\nSample to present how to generate swagger spec from source code by swagger-maven-plugin\r\n\r\n## Usage\r\n\r\nYou can quickly generates swagger.json and static document by\r\n```bash\r\nmvn compile\r\n````\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
