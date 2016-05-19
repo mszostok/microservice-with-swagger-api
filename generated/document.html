@@ -3,13 +3,13 @@
 <title>API Document</title>
 
 <xmp theme="united" style="display:none;">
-#Simple Micro-service
+#Simple Micro-user
 
 
 ## HTTP | HTTPS://http://localhost:8080/rest
 
 
-Sample micro-service only for generating swagger spec file
+Sample micro-user only for generating swagger spec file
 
 
 
@@ -104,14 +104,94 @@ Sample micro-service only for generating swagger spec file
 # APIs
 
 
-## /hello
+## /user
+
+
+
+
+
+
+### POST
+
+
+<a id="createUser">Create user</a>
+
+This can only be done by the logged in user.
+
+
+
+
+
+
+
+#### Request
+
+
+
+##### Parameters
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Located in</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Schema</th>
+    </tr>
+
+
+
+<tr>
+    <th>body</th>
+    <td>body</td>
+    <td>yes</td>
+    <td>Created user object</td>
+    <td> - </td>
+
+    <td>
+    
+    <a href="#/definitions/User">User</a> 
+    </td>
+
+</tr>
+
+
+</table>
+
+
+
+#### Response
+
+**Content-Type: ** application/json
+
+
+| Status Code | Reason      | Response Model |
+|-------------|-------------|----------------|
+| default    | successful operation |  - |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## /user/hello
 
 
 ### GET
 
-<a id="sayHello">Say Hello World</a>
+<a id="sayHello">Sample User Data</a>
 
-Just return hello world phrase
+Just return sample user data
 
 
 
@@ -157,8 +237,312 @@ Just return hello world phrase
 
 
 
+## /user/{username}
+
+
+### GET
+
+<a id="getUserByName">Get user by user name</a>
+
+
+
+
+
+
+
+
+
+#### Request
+
+
+
+##### Parameters
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Located in</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Schema</th>
+    </tr>
+
+
+
+<tr>
+    <th>username</th>
+    <td>path</td>
+    <td>yes</td>
+    <td>The name that needs to be fetched. Use user1 for testing. </td>
+    <td> - </td>
+
+    
+            <td>string </td>
+    
+
+</tr>
+
+
+</table>
+
+
+
+#### Response
+
+**Content-Type: ** application/json
+
+
+| Status Code | Reason      | Response Model |
+|-------------|-------------|----------------|
+| 200    | successful operation | <a href="#/definitions/User">User</a>|
+| 400    | Invalid username supplied |  - |
+| 404    | User not found |  - |
+
+
+
+
+
+### PUT
+
+<a id="updateUser">Updated user</a>
+
+This can only be done by the logged in user.
+
+
+
+
+
+
+
+#### Request
+
+
+
+##### Parameters
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Located in</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Schema</th>
+    </tr>
+
+
+
+<tr>
+    <th>username</th>
+    <td>path</td>
+    <td>yes</td>
+    <td>name that need to be deleted</td>
+    <td> - </td>
+
+    
+            <td>string </td>
+    
+
+</tr>
+
+<tr>
+    <th>body</th>
+    <td>body</td>
+    <td>yes</td>
+    <td>Updated user object</td>
+    <td> - </td>
+
+    <td>
+    
+    <a href="#/definitions/User">User</a> 
+    </td>
+
+</tr>
+
+
+</table>
+
+
+
+#### Response
+
+**Content-Type: ** application/json
+
+
+| Status Code | Reason      | Response Model |
+|-------------|-------------|----------------|
+| 400    | Invalid user supplied |  - |
+| 404    | User not found |  - |
+
+
+
+
+
+
+
+### DELETE
+
+<a id="deleteUser">Delete user</a>
+
+This can only be done by the logged in user.
+
+
+
+
+
+
+
+#### Request
+
+
+
+##### Parameters
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Located in</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Schema</th>
+    </tr>
+
+
+
+<tr>
+    <th>username</th>
+    <td>path</td>
+    <td>yes</td>
+    <td>The name that needs to be deleted</td>
+    <td> - </td>
+
+    
+            <td>string </td>
+    
+
+</tr>
+
+
+</table>
+
+
+
+#### Response
+
+**Content-Type: ** application/json
+
+
+| Status Code | Reason      | Response Model |
+|-------------|-------------|----------------|
+| 400    | Invalid username supplied |  - |
+| 404    | User not found |  - |
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Definitions
+
+## <a name="/definitions/User">User</a>
+
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>type</th>
+        <th>required</th>
+        <th>description</th>
+        <th>example</th>
+    </tr>
+    
+        <tr>
+            <td>id</td>
+            <td>
+                
+                    
+                    integer (int64)
+                
+            </td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+    
+        <tr>
+            <td>username</td>
+            <td>
+                
+                    
+                    string
+                
+            </td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+    
+        <tr>
+            <td>firstName</td>
+            <td>
+                
+                    
+                    string
+                
+            </td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+    
+        <tr>
+            <td>lastName</td>
+            <td>
+                
+                    
+                    string
+                
+            </td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+    
+        <tr>
+            <td>email</td>
+            <td>
+                
+                    
+                    string
+                
+            </td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+    
+        <tr>
+            <td>password</td>
+            <td>
+                
+                    
+                    string
+                
+            </td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+    
+</table>
 
 
 
