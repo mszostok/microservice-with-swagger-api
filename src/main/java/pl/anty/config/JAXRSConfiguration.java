@@ -1,6 +1,6 @@
 package pl.anty.config;
 
-import pl.anty.boundary.CatalogService;
+import pl.anty.boundary.UserService;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -28,6 +28,7 @@ public class JAXRSConfiguration extends Application {
     }
 
     private void addRestEndpoints(Set<Class<?>> resources) {
-        resources.add(CatalogService.class);
+
+        resources.add(UserService.class);
     }
 }
